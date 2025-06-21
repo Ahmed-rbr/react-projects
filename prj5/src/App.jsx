@@ -5,7 +5,7 @@ import axios from "axios";
 function App() {
   const [loading, setLoading] = useState(false);
   const [err, setError] = useState(null);
-  const [limit, setLimit] = useState(1000);
+  const [limit, setLimit] = useState(10);
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(null);
 
@@ -28,7 +28,9 @@ function App() {
   }, [limit]);
   return (
     <div className="w-4/5 flex flex-col justify-center items-center gap-4 mx-auto">
-      {loading && <p>Loading products...</p>}
+      {loading && (
+        <div className="w-8 h-8 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+      )}
       {err && <p className="text-red-500">Error: {err}</p>}
 
       <div className=" w-full grid grid-cols-3 mx-auto my-8 gap-4">
